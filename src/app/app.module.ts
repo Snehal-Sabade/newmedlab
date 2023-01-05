@@ -7,6 +7,12 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
+import { MedicineHomeComponent } from './components/medicine-home/medicine-home.component';
+import { LoginModule } from './login/login.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { TopDealsComponent } from './components/top-deals/top-deals.component';
+
 
 @NgModule({
   declarations: [
@@ -14,11 +20,19 @@ import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.co
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    PagenotfoundComponent
+    PagenotfoundComponent,
+    MedicineHomeComponent,
+    TopDealsComponent,
+  
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    LoginModule,
+    BrowserAnimationsModule,
+    CarouselModule
+
+   
   ],
   providers: [],
   bootstrap: [AppComponent]
