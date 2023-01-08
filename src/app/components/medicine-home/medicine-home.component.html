@@ -4,23 +4,30 @@
         <div>
             <h3 class="fw-400">Get Huge Savings on Medicines</h3>
             <div class="d-flex justify-content-center bd-1 mb-highlight">
-                <div class="p-2" > <i class="bi bi-check-circle-fill"></i>100 % Genuine Medicine</div>
+                <div class="p-2"> <i class="bi bi-check-circle-fill"></i>100 % Genuine Medicine</div>
                 <div class="p-2"><i class="bi bi-check-circle-fill"></i>Trusted Pharmacies</div>
                 <div class="p-2"><i class="bi bi-check-circle-fill"></i>Delivery to your doorstep</div>
                 <div class="p-2"><i class="bi bi-check-circle-fill"></i>Store Pick up</div>
             </div>
-            
+
         </div>
     </div>
 </div>
 
 <!-- pincode -->
-<div class="row m-auto w- text-center w-75 rounded-3 searchBox" >
-    <div class="input-group flex-nowrap py-4">
-        <span class="input-group-text bg-body" id="addon-wrapping">Pune &nbsp;411041 <i class="bi bi-arrow-right"></i></span>
-        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
-        <span class="input-group-text bg-body text-primary" id="addon-wrapping"><i class="bi bi-search me-2"></i>Search</span>
-      </div>
+<div class="row m-auto w- text-center w-75 rounded-pill ">
+    <div class="input-group flex-nowrap py-4 shadow-sm searchBox">
+        <!-- <span>{{pincodeInfo.pinCodeCity}}</span> -->
+        <span class="input-group-text bg-body cursor" id="addon-wrapping" *ngIf="isPinCodeAvailable">
+            {{pincodeInfo.pinCodeCity}} &nbsp;{{pincodeInfo.pincode}} &nbsp; &nbsp;
+            <span data-bs-toggle="modal" data-bs-target="#pincodeModal"><i
+                    class="bi bi-chevron-down text-primary"></i></span></span>
+        <!-- <span *ngIf="!isPinCodeAvailable">Select Location &nbsp; &nbsp;</span> -->
+        <input type="text" class="form-control" placeholder="Search medicine" aria-label="Username"
+            aria-describedby="addon-wrapping">
+        <span class="input-group-text bg-body text-primary" id="addon-wrapping"><i
+                class="bi bi-search"></i>Search</span>
+    </div>
 </div>
 
 
@@ -31,19 +38,78 @@
     <img src="../../../assets/medicine-page.webp" alt="" width="75%">
 </div>
 
-<!-- about Store -->
-<div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <a href="../../../assets/otcStore (1).webp"></a>
-        </div>
-    </div>
+<!-- ----carousel----- -->
+<div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner p-4">
+        <div class="carousel-item active" data-bs-interval="5000">
+            <div class="d-flex">
+                <div class="col-md-6 ">
+                    <img src="../../../assets/CallOffer (1).png" class="d-block  " alt="..." height="250px" width="75%">
+                </div>
 
-    <div class="row">
-        <div class="col-md-6">
-            <a href="../../../assets/CallOffer.png"></a>
+                <div class="col-md-6">
+                    <img src="../../../assets/discount-home-delivered.png" class="d-block  " alt="..." height="250px"
+                        width="75%">
+                </div>
+            </div>
+
         </div>
+        <div class="carousel-item" data-bs-interval="5000">
+            <div class="row">
+                <div class="col-md-6 ">
+                    <img src="../../../assets/otcStore (1).webp" class="d-block  " alt="..." height="250px" width="75%">
+                </div>
+
+                <div class="col-md-6">
+                    <img src="../../../assets/CallOffer (2).png" class="d-block  " alt="..." height="250px" width="75%">
+                </div>
+            </div>
+
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
 </div>
 
+
 <app-top-deals></app-top-deals>
+
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" ><span ><i class="bi bi-chevron-down"></i></span>
+    Launch demo modal
+  </button> -->
+<!--Pincode Modal -->
+<div class="modal fade" id="pincodeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="pincodeModalLabel">Set your location</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" #closeBtn></button>
+            </div>
+            <div class="modal-body">
+                <label for="id1">Select Pincode</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" name="pincode" id="id1" minlength="6" maxlength="6"
+                        [(ngModel)]="pincode" #pincodeDetails (ngModelChange)="getPackageDetailsbyPincode()">
+                    <span class="input-group-text bg-body" *ngIf="isPinCodeAvailable"><i
+                            class="bi bi-check-circle-fill text-success"></i></span>
+
+                    <div class="invalid-feedback d-block" id="validationserver03feedback" *ngIf="!isPinCodeAvailable">We
+                        do not provide service to this pincode.</div>
+                </div>
+            </div>
+            <!-- <div class="d-grid gap-2 m-4">
+                <button class="btn btn-primary" type="button" (click)="getPackageDetailsbyPincode()">Submit</button>
+            </div> -->
+        </div>
+    </div>
+</div>

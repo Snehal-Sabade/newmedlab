@@ -11,8 +11,9 @@ import { MedicineHomeComponent } from './components/medicine-home/medicine-home.
 import { LoginModule } from './login/login.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-owl-carousel-o';
-import { TopDealsComponent } from './components/top-deals/top-deals.component';
-
+import { TopDealsComponent } from './top-deals/top-deals.component';
+import { FormsModule } from '@angular/forms';
+import{HttpClientModule} from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -30,7 +31,9 @@ import { TopDealsComponent } from './components/top-deals/top-deals.component';
     AppRoutingModule,
     LoginModule,
     BrowserAnimationsModule,
-    CarouselModule
+    CarouselModule,
+    FormsModule,
+    HttpClientModule
 
    
   ],
