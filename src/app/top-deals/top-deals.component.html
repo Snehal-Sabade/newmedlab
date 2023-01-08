@@ -6,7 +6,7 @@
     <div class="row cusor">
 
         <owl-carousel-o [options]="customOptions">
-            <ng-container *ngFor="let deal of topDeals">
+            <ng-container *ngFor="let deal of products">
                 <ng-template carouselSlide [id]="deal.id">
                     <div class="card card-block" style="width: 280px;">
                         <img [src]="deal.productImageSlug[0]" class="card-img-top m-2 p-4 rounded-pill" alt="..."

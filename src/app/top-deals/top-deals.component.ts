@@ -8,7 +8,7 @@ import { TopDealService } from '../core/http/top-deal.service';
   styleUrls: ['./top-deals.component.scss']
 })
 export class TopDealsComponent implements OnInit {
-  topDeals: any[] = [];
+  products: any[]=[];
 
   constructor(private topdeal: TopDealService) { }
 
@@ -19,7 +19,7 @@ export class TopDealsComponent implements OnInit {
   getTopDeals() {
     this.topdeal.getDetailsFromServer('top-deals').subscribe((response: any) => {
       if (response && response.length > 0) {
-        this.topDeals = response;
+        this.products = response;
       }
     })
   }
