@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { TopDealService } from '../core/http/top-deal.service';
 
@@ -9,22 +10,24 @@ import { TopDealService } from '../core/http/top-deal.service';
 })
 export class TopDealsComponent implements OnInit {
   products: any[]=[];
-
-  constructor(private topdeal: TopDealService) { }
+ 
+  constructor(private topDealService: TopDealService,private router:Router) { }
 
   ngOnInit(): void {
     this.getTopDeals();
   }
 
   getTopDeals() {
-    this.topdeal.getDetailsFromServer('top-deals').subscribe((response: any) => {
+    this.topDealService.getDetailsFromServer('top-deals').subscribe((response: any) => {
       if (response && response.length > 0) {
         this.products = response;
       }
     })
   }
 
-
+  navigateToTopDealProduct(drugCode:string){
+    this.router.navigate(['topdealproductdetail',drugCode]);
+  }
 
 
   customOptions: OwlOptions = {

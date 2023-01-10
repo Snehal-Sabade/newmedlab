@@ -17,4 +17,9 @@ export class TopDealService {
     return this.http.get(url, { 'headers': this.httpheaders, 'params': httpParams });
 
   }
+  getProductDetailsFronServer(){
+    this.getDetailsFromServer('topdeals').subscribe((responce:any)=>{
+      if(responce && responce >0){}
+    })
+  }
 }

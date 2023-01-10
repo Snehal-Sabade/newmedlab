@@ -1,0 +1,39 @@
+<div class="row py-2 bg-light text-dark">
+    <div class="col-md-2 text-end cursor">
+        <span class="me-2 fs-2 mt-5 " routerLinkActive="active" routerLink="/medicine-home"><i
+                class="bi bi-arrow-left text-primary"></i></span> &nbsp;(Click arrow to go back)
+    </div>
+</div>
+
+
+<div class="row py-3 bg-info text-light mb-2">
+    <div class="col-md-4 text-end "> Showing medicine availability and prices in </div>
+</div>
+
+
+<div class="container py3 mt-4">
+    <div class="row">
+        <div class="col-md-5 mt-4 m-auto text-center cursor ">
+            <img [src]="productDetails?.productImageSlug[0]" alt="" width="320px">
+        </div>
+        <div class="col-md-5 mt-4 mx-2"></div>
+        <div>
+            <p class="title">{{productDetails?.title}}</p>
+        </div>
+        <span>MRP & nbsp;Rs.{{productDetails?.discountPrice}} /-*</span>
+        <div>
+            <p>{{productDetails?.description}}</p>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- <div class="row">
+<div class="col-md-6">
+    <img [src]="productDetails?.productImageSlug[0]" alt=""width="320px">
+</div>
+<div class="col-md-6">
+
+</div>
+</div> -->
