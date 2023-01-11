@@ -6,22 +6,25 @@
     <div class="row cusor">
 
         <owl-carousel-o [options]="customOptions">
-            <ng-container *ngFor="let deal of products"  >
+            <ng-container *ngFor="let deal of products">
                 <ng-template carouselSlide [id]="deal.id">
-                    <div class="card card-block cursor" style="width: 280px"  (click)="navigateToTopDealProduct(deal.drugCode)" >
-                        
+                    <div class="card card-block cursor" style="width: 280px">
+
                         <img [src]="deal.productImageSlug[0]" class="card-img-top m-2 p-4 rounded-pill" alt="..."
                             height="210px">
-                        <div class="card-body">
+                        <div class="card-body" (click)="navigateToTopDealProduct(deal.drugCode)">
 
                             <h5 class=" card-title card-description" [title]="deal.description">{{deal.description}}
                             </h5>
 
                             <span class="card-text text-muted">{{deal.type}}</span>
                             <p class="card-text text-muted">MRP <span>Rs.<s>{{deal.actualPrice}}</s></span></p>
-                            <p style="font-size:20px">Rs.<span class="ms-0">{{deal.discountPrice}}</span><button
-                                    class="btn border border-dark-black ">Add</button></p>
+                            <p style="font-size:20px">Rs.<span class="ms-0">{{deal.discountPrice}}</span></p>
 
+                        </div>
+                        <div>
+                            <button (click)="addToCart(deal)"
+                                    class="btn border border-dark-black ">Add</button>
                         </div>
                     </div>
                 </ng-template>
