@@ -12,7 +12,7 @@ import { SharedService } from '../shared/service/shared.service';
 export class TopDealsComponent implements OnInit {
   products: any[] = [];
 
-  constructor(private topDealService: TopDealService, private router: Router,private sharedService:SharedService) { }
+  constructor(private topDealService: TopDealService, private router: Router, private sharedService: SharedService) { }
 
   ngOnInit(): void {
     this.getTopDeals();
@@ -64,9 +64,21 @@ export class TopDealsComponent implements OnInit {
     if (!products) {
       products = [];
     }
-    products.push(product);
+
+    let isDuplcate = false;
+    products.forEach((element: any) => {
+      if (element.drugCode = product.drugCode) {
+        isDuplcate = true;
+      }
+    });
+    if (isDuplcate) {
+      alert('Alrady in cart');
+    } else {
+      products.push(product);
+    }
     localStorage.setItem('products', JSON.stringify(products));
     this.sharedService.emitSelProduct.next(products.length);
+
   }
 
 }

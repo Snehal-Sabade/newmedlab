@@ -16,7 +16,9 @@ import { FormsModule } from '@angular/forms';
 import{HttpClientModule} from '@angular/common/http';
 import { TopdealproductdetailComponent } from './components/topdealproductdetail/topdealproductdetail.component';
 import { ViewProductDetailsCategoryComponent } from './components/view-product-details-category/view-product-details-category.component';
-import {  CartComponent} from './components/cart/cart.component'
+import {  CartComponent} from './components/cart/cart.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +30,7 @@ import {  CartComponent} from './components/cart/cart.component'
     TopDealsComponent,
     TopdealproductdetailComponent,
     ViewProductDetailsCategoryComponent,
-    CartComponent,
+   CartComponent
   
   ],
   imports: [

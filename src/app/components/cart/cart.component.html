@@ -1,1 +1,22 @@
-<p>cart works!</p>
+<div class="row">
+    <ng-container *ngFor="let deal of productShow">
+    
+        <div class="card card-block cursor" style="width: 280px">
+
+            <img [src]="deal?.productImageSlug" class="card-img-top m-2 p-4 rounded-pill" alt="..."
+                height="210px">
+            <div class="card-body">
+
+                <h5 class=" card-title card-description" [title]="deal?.description">{{deal?.description}}
+                </h5>
+
+                <span class="card-text text-muted">{{deal?.type}}</span>
+                <p class="card-text text-muted">MRP <span>Rs.<s>{{deal?.actualPrice}}</s></span></p>
+                <p style="font-size:20px">Rs.<span class="ms-0">{{deal?.discountPrice}}</span></p>
+
+            </div>
+            
+        </div>
+    
+</ng-container>
+</div>
