@@ -12,7 +12,7 @@ import { LoginModule } from './login/login.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { TopDealsComponent } from './top-deals/top-deals.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import{HttpClientModule} from '@angular/common/http';
 import { TopdealproductdetailComponent } from './components/topdealproductdetail/topdealproductdetail.component';
 import { ViewProductDetailsCategoryComponent } from './components/view-product-details-category/view-product-details-category.component';
@@ -40,7 +40,8 @@ import {  CartComponent} from './components/cart/cart.component';
     BrowserAnimationsModule,
     CarouselModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
 
    
   ],

@@ -28,6 +28,8 @@ navigateToTopDealProduct(drugCode:string){
   this.router.navigate(['topdealproductdetail',drugCode]);
 }
 
-
+onAddToCard(deal:any){
+// this.localStorage.getTopDealByCategory
+}
 
 }

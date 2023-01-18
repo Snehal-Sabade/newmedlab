@@ -47,6 +47,6 @@ export interface Pincode {
   pincode: number;
   packegeDetails: any;
   pinCodeCity: string;
-  syatusCode: number;
+  statusCode: number;
 
 }

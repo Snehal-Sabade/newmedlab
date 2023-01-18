@@ -16,6 +16,7 @@ export class TopDealsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getTopDeals();
+    // localStorage.setItem('products', JSON.stringify([]));
   }
 
   getTopDeals() {
@@ -64,13 +65,16 @@ export class TopDealsComponent implements OnInit {
     if (!products) {
       products = [];
     }
-
+    
     let isDuplcate = false;
-    products.forEach((element: any) => {
-      if (element.drugCode = product.drugCode) {
-        isDuplcate = true;
-      }
-    });
+    if(products.length >0){
+      products.forEach((element: any) => {
+        if (element.drugCode === product.drugCode) {
+          isDuplcate = true;
+        }
+      });
+    }
+    
     if (isDuplcate) {
       alert('Alrady in cart');
     } else {

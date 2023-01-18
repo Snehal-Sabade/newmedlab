@@ -1,7 +1,3 @@
-
-
-
-
 {
   "pincodeDetails": [
     {
@@ -98,7 +94,7 @@
   ],
   "top-deals": [
     {
-      "drugCode": 381015,
+      "drugCode": 101,
       "actualPrice": 4,
       "maxQuantity": 60,
       "discountPrice": 4,
@@ -138,7 +134,7 @@
       "adjudicationText": ""
     },
     {
-      "drugCode": 10014260,
+      "drugCode": 102,
       "actualPrice": 50,
       "maxQuantity": 10,
       "discountPrice": 50,
@@ -177,7 +173,7 @@
       "adjudicationText": ""
     },
     {
-      "drugCode": 1000050509,
+      "drugCode": 103,
       "actualPrice": 61,
       "maxQuantity": 5,
       "discountPrice": 61,
@@ -216,7 +212,7 @@
       "adjudicationText": ""
     },
     {
-      "drugCode": 10232784,
+      "drugCode": 104,
       "actualPrice": 32,
       "maxQuantity": 20,
       "discountPrice": 32,
@@ -256,7 +252,7 @@
       "adjudicationText": ""
     },
     {
-      "drugCode": 1000054657,
+      "drugCode": 105,
       "actualPrice": 9,
       "maxQuantity": 10,
       "discountPrice": 9,
@@ -293,7 +289,7 @@
       "adjudicationText": ""
     },
     {
-      "drugCode": 10220151,
+      "drugCode": 106,
       "actualPrice": 36,
       "maxQuantity": 20,
       "discountPrice": 36,
@@ -333,7 +329,7 @@
       "adjudicationText": ""
     },
     {
-      "drugCode": 1000054665,
+      "drugCode": 107,
       "actualPrice": 9,
       "maxQuantity": 10,
       "discountPrice": 9,
@@ -369,7 +365,7 @@
       "adjudicationText": ""
     },
     {
-      "drugCode": 1000054562,
+      "drugCode": 108,
       "actualPrice": 330,
       "maxQuantity": 10,
       "discountPrice": 330,
@@ -405,7 +401,7 @@
       "adjudicationText": ""
     },
     {
-      "drugCode": 1000054607,
+      "drugCode": 109,
       "actualPrice": 3499,
       "maxQuantity": 10,
       "discountPrice": 3149,
@@ -1034,6 +1030,41 @@
       "password": "test",
       "isMobileNoVerified": true,
       "id": 15
+    },
+    {
+      "userName": "test12",
+      "mobailNo": "7878787878",
+      "password": "welcome123",
+      "isMobailNoVerified": true,
+      "id": 16
+    },
+    {
+      "userName": "test123",
+      "mobailNo": "9090909090",
+      "password": "welcome12",
+      "isMobailNoVerified": true,
+      "id": 17
+    },
+    {
+      "userName": "test123",
+      "mobailNo": "7878787878",
+      "password": "welcome123",
+      "isMobailNoVerified": true,
+      "id": 18
+    },
+    {
+      "userName": "test123",
+      "mobailNo": "7878787878",
+      "password": "welcome123",
+      "isMobailNoVerified": true,
+      "id": 19
+    },
+    {
+      "userName": "test123",
+      "mobailNo": "7878787878",
+      "password": "welcome123",
+      "isMobailNoVerified": true,
+      "id": 20
     }
   ]
 }

@@ -30,8 +30,5 @@ export class TopdealproductdetailComponent implements OnInit {
 
   }
 
-
-
-
 }
 

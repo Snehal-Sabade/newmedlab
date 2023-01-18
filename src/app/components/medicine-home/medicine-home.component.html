@@ -21,16 +21,14 @@
         <span class="input-group-text bg-body cursor" id="addon-wrapping" *ngIf="isPinCodeAvailable">
            {{pincodeInfo?.pincodeCity}} &nbsp;{{pincodeInfo?.pincode}} &nbsp; &nbsp;
             <span data-bs-toggle="modal" data-bs-target="#pincodeModal"><i
-                    class="bi bi-chevron-down text-primary"></i></span></span>
+                    class="bi bi-chevron-down text-primary m-2"></i>Select Location</span></span>
         <!-- <span *ngIf="!isPinCodeAvailable">Select Location &nbsp; &nbsp;</span> -->
         <input type="text" class="form-control" placeholder="Search medicine" aria-label="Username"
             aria-describedby="addon-wrapping">
         <span class="input-group-text bg-body text-primary" id="addon-wrapping"><i
-                class="bi bi-search"></i>Search</span>
+                class="bi bi-search m-2"></i>Search</span>
     </div>
 </div>
-
-
 
 
 <!-- orderd medicine -->
@@ -82,11 +80,9 @@
 
 <app-top-deals></app-top-deals>
 
-<!-- Button trigger modal -->
-<!-- <button type="button" class="btn btn-primary" ><span ><i class="bi bi-chevron-down"></i></span>
-    Launch demo modal
-  </button> -->
-<!--Pincode Modal -->
+ 
+ <!-- Pincode Modal  -->
+ 
 <div class="modal fade" id="pincodeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 
     <div class="modal-dialog">
