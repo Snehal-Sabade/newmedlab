@@ -21,7 +21,8 @@
                     <span class="card-text text-muted">{{deal.type}}</span>
                     <p class="card-text text-muted">MRP <span>Rs.<s>{{deal.actualPrice}}</s></span></p>
                     <p style="font-size:20px">Rs.<span class="ms-0">{{deal.discountPrice}}</span>
-                        <button class="btn border border-dark-black" (click)="onAddToCard(deal)">Add</button>
+                        <button class="btn border border-dark-black"
+                            (click)="onAddToCart($event,deal);">Add</button>
                     </p>
 
                 </div>
