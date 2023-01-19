@@ -17,6 +17,7 @@ import{HttpClientModule} from '@angular/common/http';
 import { TopdealproductdetailComponent } from './components/topdealproductdetail/topdealproductdetail.component';
 import { ViewProductDetailsCategoryComponent } from './components/view-product-details-category/view-product-details-category.component';
 import {  CartComponent} from './components/cart/cart.component';
+import { CartModule } from './cart/cart.module';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import {  CartComponent} from './components/cart/cart.component';
     CarouselModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CartModule
 
    
   ],

@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Data } from '@angular/router';
 import { from } from 'rxjs';
+import { AuthenticationService } from '../authentication.service';
 import { UsersService } from '../core/users.service';
 
 @Component({
@@ -11,7 +13,10 @@ import { UsersService } from '../core/users.service';
 export class LoginComponent implements OnInit {
   logInForm!: FormGroup;
   isLoggedIn: boolean = true;
-  constructor(private fb: FormBuilder, private usersService: UsersService) { }
+  isNewUser:boolean=false;
+  @Output() signInSuccess:EventEmitter<Data> =new EventEmitter<Data>();
+
+  constructor(private fb: FormBuilder, private usersService: UsersService,private authenticationService:AuthenticationService) { }
 
   ngOnInit() {
     this.CreateLogInForm();
@@ -20,9 +25,12 @@ export class LoginComponent implements OnInit {
     const mobno = this.logInForm.controls['mobileNo'].value;
     const pass = this.logInForm.controls['password'].value;
     this.usersService.getDataFromServer(`users?mobileNo=${mobno}`).subscribe((data: any) => {
-      console.log(data);
+      const user = data[0];
+      user['token'] = 'asdfghjkllkk';
+      const userToken = 'asdfghjkllkk';
+      localStorage.setItem('user', JSON.stringify(user));
+      this.signInSuccess.emit()
       if (data.length > 0) {
-        this.isLoggedIn = true
       } else {
         this.isLoggedIn = false
       }

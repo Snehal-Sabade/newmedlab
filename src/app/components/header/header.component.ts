@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { SharedService } from 'src/app/shared/service/shared.service';
@@ -11,7 +11,11 @@ import { SharedService } from 'src/app/shared/service/shared.service';
 export class HeaderComponent implements OnInit {
   cartCount!: Observable<number>
   isLoggedIn: boolean = false;
-  constructor(private sharedService: SharedService,private router:Router) { }
+  userLoggedIn: boolean= false;;
+  loginBtn: any;
+  user:any;
+  @ViewChild('closeBtn', { 'read': ElementRef }) closeBtn!: ElementRef;
+  constructor(private sharedService: SharedService, private router: Router) { }
 
   ngOnInit(): void {
     this.cartCount = this.sharedService.cartObs;
@@ -19,6 +23,22 @@ export class HeaderComponent implements OnInit {
 
   changeAction() {
     this.isLoggedIn = !this.isLoggedIn;
-    
+
   }
+  reDirectToCart() {
+    if (this.isLoggedIn) {
+      this.router.navigate(['/cart'])
+    } else {
+      this.loginBtn.nativeElement.click();
+    }
+
+  }
+  onLogin(): void {
+    this.closeBtn.nativeElement.click();
+    this.userLoggedIn = true;
+    this.user = localStorage.getItem('user');
+    this.user = JSON.parse(this.user);
+    console.log(this.user);
+  }
+
 }

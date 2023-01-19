@@ -4,18 +4,17 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class TopDealService {
+export class AuthenticationService {
 
-  constructor(private http: HttpClient) { }
-
+  constructor(private http: HttpClient) {}
   baseUrl: string = " http://localhost:3000/"
   httpheaders: HttpHeaders = new HttpHeaders()
     .set('content-type', 'application/json');
 
-  getDetailsFromServer(endpoint: string, httpParams: HttpParams = new HttpParams()) {
-    let url = this.baseUrl + endpoint;
-    return this.http.get(url, { 'headers': this.httpheaders, 'params': httpParams });
-
-  }
+    getUserData(endpoint: string) {
+      let url = this.baseUrl + endpoint;
+      return this.http.get(url, { 'headers': this.httpheaders });
+    }
+    
   
 }
