@@ -12,8 +12,8 @@ export class HeaderComponent implements OnInit {
   cartCount!: Observable<number>
   isLoggedIn: boolean = false;
   userLoggedIn: boolean= false;;
-  loginBtn: any;
   user:any;
+  @ViewChild('loginBtn', { 'read': ElementRef }) loginBtn!: ElementRef;
   @ViewChild('closeBtn', { 'read': ElementRef }) closeBtn!: ElementRef;
   constructor(private sharedService: SharedService, private router: Router) { }
 
@@ -26,7 +26,7 @@ export class HeaderComponent implements OnInit {
 
   }
   reDirectToCart() {
-    if (this.isLoggedIn) {
+    if (this.isLoggedIn && this.userLoggedIn) {
       this.router.navigate(['/cart'])
     } else {
       this.loginBtn.nativeElement.click();
