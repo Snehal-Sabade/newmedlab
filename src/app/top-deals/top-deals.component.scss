@@ -1,0 +1,33 @@
+.card-block {
+    box-shadow: 0 0 10px rgb(24 24 24/16%);
+    border-radius: 20px;
+    margin: 0px;
+}
+
+.card-description {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    font-weight: 400px;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: green;
+    color: white;
+
+}
+
+.btn {
+    margin-left: 120px;
+    border: 2px solid black !important;
+}
+
+.block{
+    display: flex;
+    justify-content: center;
+    border: 1px solid gray;
+    border-radius:0 20 ;
+    margin-left: 210px;
+    border-radius: 25px;
+}
