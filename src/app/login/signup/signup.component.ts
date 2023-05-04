@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
 import { interval, Subscription } from 'rxjs';
+import { AuthenticationService } from 'src/app/authentication.service';
 import { UsersService } from 'src/app/core/users.service';
 @Component({
   selector: 'app-signup',
@@ -16,8 +17,9 @@ export class SignupComponent implements OnInit {
   otpTimer!: number;
   isVerifyOtp: boolean = false;
   sub!: Subscription;
+isSignUpSuccess:boolean=false;
 
-  constructor(private fb: FormBuilder, private usersService: UsersService) { }
+  constructor(private fb: FormBuilder, private usersService: UsersService, private authenticationService: AuthenticationService) { }
 
   ngOnInit(): void {
     this.CreateSignUpForm();
@@ -27,7 +29,7 @@ export class SignupComponent implements OnInit {
       'userName': ['', [Validators.required]],
       'mobailNo': ['', [Validators.required, Validators.maxLength(10), Validators.minLength(10)]],
       'password': ['', [Validators.required]],
-      'isMobailNoVerified': ['false', []]
+      'isMobailNoVerified': ['false']
     })
 
   }
@@ -64,16 +66,24 @@ export class SignupComponent implements OnInit {
   SignUp() {
     if (this.isVerifyOtp) {
       console.log(this.signUpForm.value);
-      this.postDataToServer(this.signUpForm.value);
-      alert("Sign-Up successful, continue to loggin");
+      this.authenticationService.getUserData('users', this.signUpForm).subscribe((response: any) => {
+        if (response && response.length > 0) {
+          this.isSignUpSuccess=true;
+console.log(response)
+        }else{
+          this.isSignUpSuccess=false;
+        }
+      })
+      // this.postDataToServer(this.signUpForm.value);
+      // alert("Sign-Up successful, continue to loggin");
     }
 
   }
 
-  postDataToServer(data: any) {
-    this.usersService.postDataToServer('users', data).subscribe((data: any) => {
-      console.log(data);
+  // postDataToServer(data: any) {
+  //   this.usersService.postDataToServer('users', data).subscribe((data: any) => {
+  //     console.log(data);
 
-    })
-  }
+  // })
+  // }
 }

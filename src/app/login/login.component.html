@@ -1,7 +1,8 @@
 <!-- <p>login works!</p> -->
 <div class="container">
   <div class="row">
-    <div *ngIf="!isLoggedIn" class="btn btn-danger">Password and Username does not matched,Please SignUp. </div>
+    <div class="alert alert-danger" role="alert" *ngIf="isNewUser">User Doesn't matched against this mobile number,Please check your credentials or Do signup. </div>
+    <!-- <div *ngIf="!isLoggedIn" class="btn btn-danger">Password and Username does not matched,Please SignUp. </div> -->
     <form [formGroup]="logInForm" (ngSubmit)="logIn()">
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Mobile Number</label>

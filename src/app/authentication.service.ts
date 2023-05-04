@@ -11,9 +11,9 @@ export class AuthenticationService {
   httpheaders: HttpHeaders = new HttpHeaders()
     .set('content-type', 'application/json');
 
-    getUserData(endpoint: string) {
+    getUserData(endpoint: string,requestbody:any) {
       let url = this.baseUrl + endpoint;
-      return this.http.get(url, { 'headers': this.httpheaders });
+      return this.http.get(url, requestbody);
     }
     
   

@@ -2,6 +2,9 @@
 <div class="container">
     <div class="alert alert-danger" role="alert" *ngIf="!isVerifyOtp && signUpForm.valid">Mobail verification is
         mandatory</div>
+        <div class="alert alert-success" role="alert" *ngIf="isSignUpSuccess">
+           Ragistration successful , please login! </div>
+          
     <div class="row">
         <form [formGroup]="signUpForm" (ngSubmit)="SignUp()">
             <div class="mb-3">
@@ -39,7 +42,7 @@
                 <label class="form-check-label" for="exampleCheck1">Check me out</label>
             </div>
             <button type="submit" class="btn btn-primary m-4"
-                [disabled]="!(signUpForm.valid && isVerifyOtp)">Sign-Up</button>
+                [disabled]="!(signUpForm.valid && isVerifyOtp && !isSignUpSuccess)">Sign-Up</button>
         </form>
     </div>
 </div>

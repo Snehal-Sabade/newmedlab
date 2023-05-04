@@ -13,6 +13,7 @@ export class HeaderComponent implements OnInit {
   isLoggedIn: boolean = false;
   userLoggedIn: boolean= false;;
   user:any;
+  actionName:string="LogIn";
   @ViewChild('loginBtn', { 'read': ElementRef }) loginBtn!: ElementRef;
   @ViewChild('closeBtn', { 'read': ElementRef }) closeBtn!: ElementRef;
   constructor(private sharedService: SharedService, private router: Router) { }
@@ -21,9 +22,16 @@ export class HeaderComponent implements OnInit {
     this.cartCount = this.sharedService.cartObs;
   }
 
-  changeAction() {
-    this.isLoggedIn = !this.isLoggedIn;
+  changeAction(action:string) {
+    // this.isLoggedIn = !this.isLoggedIn;
+    this.actionName = action;
 
+  }
+
+  handleLoginSuccess(flag:boolean){
+if(flag){
+  this.closeBtn.nativeElement.click();
+}
   }
   reDirectToCart() {
     if (this.isLoggedIn && this.userLoggedIn) {

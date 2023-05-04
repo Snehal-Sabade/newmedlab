@@ -20,17 +20,26 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel" *ngIf="isLoggedIn">Sign-UP</h1>
-        <h1 class="modal-title fs-5" id="exampleModalLabel" *ngIf="!isLoggedIn ">LogIn</h1>
+        <!-- <h1 class="modal-title fs-5" id="exampleModalLabel" *ngIf="isLoggedIn">Sign-UP</h1> -->
+        <h1 class="modal-title fs-5" id="exampleModalLabel">{{actionName}}&nbsp;Form</h1>
+        <!-- <h1 class="modal-title fs-5" id="exampleModalLabel" *ngIf="!isLoggedIn ">LogIn</h1> -->
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" #closeBtn></button>
       </div>
       <div class="modal-body">
-        <app-signup *ngIf="isLoggedIn"></app-signup>
-        <app-login *ngIf="!isLoggedIn" (signInSuccess)="onLogin()"></app-login>
+        <!-- <app-signup *ngIf="isLoggedIn"></app-signup>
+        <app-login *ngIf="!isLoggedIn" (signInSuccess)="onLogin()"></app-login> -->
+
+        <app-signup *ngIf="actionName == 'SignUp'"></app-signup>
+        <!-- <app-login *ngIf="actionName == 'LogIn'" (signInSuccess)="onLogin()"></app-login> -->
+        <app-login *ngIf="actionName == 'LogIn'" (signInSuccess)="handleLoginSuccess($event)"></app-login>
+
       </div>
 
-      <button type="button" class="btn btn-primary" (click)="changeAction()" *ngIf="!isLoggedIn">Sign-Up</button>
-      <button type="button" class="btn btn-primary" (click)="changeAction()" *ngIf="isLoggedIn">Login</button>
+      <!-- <button type="button" class="btn btn-primary m-4" (click)="changeAction()" *ngIf="!isLoggedIn">Sign-Up</button>
+      <button type="button" class="btn btn-primary" (click)="changeAction()" *ngIf="isLoggedIn">Login</button> -->
+
+      <button type="button" class="btn btn-primary m-4" *ngIf="actionName == 'LogIn'" (click)="changeAction('SignUp')" >Sign-Up</button>
+      <button type="button" class="btn btn-primary m-4" *ngIf="actionName == 'SignUp'" (click)="changeAction('LogIn')" >Login</button>
 
     </div>
   </div>
